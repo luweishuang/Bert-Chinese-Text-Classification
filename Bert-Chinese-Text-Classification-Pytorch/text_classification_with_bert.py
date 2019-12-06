@@ -46,7 +46,7 @@ def process_valdata(config, model):
     print("id2class = ", id2class)
     print("class_dict = ", class_dict)
 
-    word_vec_dim = 512
+    word_vec_dim = 768
     class_vec_mat = np.zeros((len(class_dict), word_vec_dim), dtype=np.float32)
     for cur_class_id in range(len(class_dict)):
         cur_intance = class_dict[cur_class_id]
