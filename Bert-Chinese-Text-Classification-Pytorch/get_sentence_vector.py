@@ -67,3 +67,4 @@ if __name__ == '__main__':
     cur_line = "名师辅导：2012考研英语虚拟语气三种用法"
     result_vec = get_sentence_vector(config, model, cur_line)
     print(result_vec.shape)
+    print(result_vec)
