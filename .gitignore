@@ -1,5 +1,5 @@
 .idea/
-Bert-Chinese-Text-Classification-Pytorch/bert_pretrain/
+Bert-Chinese-Text-Classification-Pytorch/bert_pretrain/pytorch_model.bin
 Bert-Chinese-Text-Classification-Pytorch/models/__pycache__/
 Bert-Chinese-Text-Classification-Pytorch/pytorch_pretrained/__pycache__/
 tensorflow-hub/moduleA/

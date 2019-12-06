@@ -13,7 +13,7 @@ args = parser.parse_args()
 
 
 if __name__ == '__main__':
-    dataset = 'intent_classify'  # 数据集  
+    dataset = 'intent_classify'  # 数据集
 
     model_name = args.model  # bert
     x = import_module('models.' + model_name)
