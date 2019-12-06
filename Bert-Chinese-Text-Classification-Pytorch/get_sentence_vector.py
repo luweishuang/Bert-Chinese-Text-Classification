@@ -7,7 +7,10 @@ from importlib import import_module
 PAD, CLS = '[PAD]', '[CLS]'  # padding符号, bert中综合信息符号
 
 
-def get_sentence_vector(config, model, test_iter):
+def get_sentence_vector(config, model, cur_line):
+    test_data = process_data(cur_line, config, config.pad_size)
+    test_iter = _to_tensor(test_data, config.device)
+
     # test
     model.load_state_dict(torch.load(config.save_path))
     model.eval()
@@ -26,7 +29,7 @@ def _to_tensor(datas, device):
     return (x, seq_len, mask)
 
 
-def process_data(cur_line, pad_size=32):
+def process_data(cur_line, config, pad_size=32):
     contents = []
     content = cur_line.strip()
     token = config.tokenizer.tokenize(content)
@@ -62,8 +65,5 @@ if __name__ == '__main__':
     model = x.Model(config).to(config.device)
 
     cur_line = "名师辅导：2012考研英语虚拟语气三种用法"
-    test_data = process_data(cur_line, config.pad_size)
-    test_iter = _to_tensor(test_data, config.device)
-
-    result_vec = get_sentence_vector(config, model, test_iter)
+    result_vec = get_sentence_vector(config, model, cur_line)
     print(result_vec.shape)
